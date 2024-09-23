@@ -28,3 +28,12 @@ ld abs2(Pt a) { return a * a; }
 
 istream &operator>>(istream &s, Pt &a) { return s >> a.x >> a.y; }
 ostream &operator<<(ostream &s, Pt &a) { return s << "(" << a.x << ", " << a.y << ")";} 
+
+ld pointToSeg(Pt a,Pt b,Pt o){ //distance of ab segment and point o
+    if((o-b) * (a-b) < 0) return abs((o-b));
+    if((o-a) * (b-a) < 0) return abs((o-a));
+    return abs(((b-a)^(o-a))/abs(b-a));
+}
+bool collinearity(const PT& a, const PT& b, const PT& c) {  // 是否三點共線
+    return ((b - a) ^ (c - a)) == 0;
+}
