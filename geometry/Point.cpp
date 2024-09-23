@@ -15,10 +15,10 @@ struct pt{
 	auto operator<=>(pt o) const { return (x != o.x) ? x <=> o.x : y <=> o.y; }
 	bool operator < (pt a) const { return x < a.x || (x == a.x && y < a.y);};
 	bool operator== (pt a) const { return x == a.x and y == a.y;};
-	friend T ori(Pt a, Pt b, Pt c) { return (b - a) ^ (c - a); }
-	friend T abs2(Pt a) { return a * a; }
+	friend T ori(pt a, pt b, pt c) { return (b - a) ^ (c - a); }
+	friend T abs2(pt a) { return a * a; }
 	friend int dcmp(ld x) { return (x > -eps) - (x < eps); }
-	friend ld abs(Pt a) { return sqrt(a * a); }
+	friend ld abs(pt a) { return sqrt(a * a); }
 };
 using numbers::pi;
 const ld eps = 1e-8L;
