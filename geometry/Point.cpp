@@ -1,3 +1,4 @@
+using ld = long double;
 template<class T>
 struct pt{
 	T x,y;
@@ -14,17 +15,16 @@ struct pt{
 	auto operator<=>(pt o) const { return (x != o.x) ? x <=> o.x : y <=> o.y; }
 	bool operator < (pt a) const { return x < a.x || (x == a.x && y < a.y);};
 	bool operator== (pt a) const { return x == a.x and y == a.y;};
+	friend T ori(Pt a, Pt b, Pt c) { return (b - a) ^ (c - a); }
+	friend T abs2(Pt a) { return a * a; }
+	friend int dcmp(ld x) { return (x > -eps) - (x < eps); }
+	friend ld abs(Pt a) { return sqrt(a * a); }
 };
-
 using numbers::pi;
-using ld = long double;
 const ld eps = 1e-8L;
 using Pt = pt<ld>;
 
-int dcmp(ld x) { return (x > -eps) - (x < eps); }
-ld ori(Pt a, Pt b, Pt c) { return (b - a) ^ (c - a); }
-ld abs(Pt a) { return sqrt(a * a); }
-ld abs2(Pt a) { return a * a; }
+
 
 istream &operator>>(istream &s, Pt &a) { return s >> a.x >> a.y; }
 ostream &operator<<(ostream &s, Pt &a) { return s << "(" << a.x << ", " << a.y << ")";} 
