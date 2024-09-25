@@ -22,3 +22,25 @@ void cdq(int ll,int rr){
     BIT.reset(); //操作復原
     rep(k,0,t) arr[k+ll] = temp[k];
 }
+//[l,r)
+auto cdq = [&](auto&& self,auto l,auto r){
+    if((r - l) <= 1) return;
+    auto m = (r - l) / 2 + l;
+    self(self,l,m);
+    self(self,m,r);
+    auto i = l,j = m;
+    auto work = [&](){
+        ++j;
+    };
+    while(i != m && j != r){
+        if(arr[*i][1] <= arr[*j][1]) {
+            ++i;
+        }else work();
+    }
+    while(j != r) work();
+    clear();
+    inplace_merge(l,m,r,[&](auto a,auto b){
+        return arr[a][1] < arr[b][1];
+    });
+};
+cdq(cdq,all(ord));//排ord
