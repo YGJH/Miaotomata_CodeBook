@@ -5,6 +5,8 @@
 		"vector": "cpp",
 		"cmath": "cpp",
 		"complex": "cpp",
-		"numbers": "cpp"
+		"numbers": "cpp",
+		"iosfwd": "cpp",
+		"ranges": "cpp"
 	}
 }
