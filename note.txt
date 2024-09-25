@@ -31,3 +31,5 @@ other
     // De Bruijn Sequence 
     // 回朔求字典序最小
     Syntax (語法(改STLcomparator等))
+
+計算幾何tex要重新排版
