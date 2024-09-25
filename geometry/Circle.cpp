@@ -1,6 +1,6 @@
 struct Cir { 
     Pt o;
-    double r; 
+    ld r; 
 };
 bool disjunct(const Cir &a, const Cir &b) {
     return sgn(abs(a.o - b.o) - a.r - b.r) >= 0; 

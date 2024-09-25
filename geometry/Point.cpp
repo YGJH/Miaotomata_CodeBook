@@ -22,7 +22,7 @@ using numbers::pi;
 const ld eps = 1e-8L;
 using Pt = pt<ld>;
 int sgn(ld x) { return (x > -eps) - (x < eps); } // dcmp == sgn
-ld abs(pt a) { return sqrt(a * a); }
+ld abs(Pt a) { return sqrt(a * a); }
 ld arg(Pt x) { return atan2(x.y, x.x); }
 bool argcmp(Pt a, Pt b) { // arg(a) < arg(b)
     int f = (Pt{a.y, -a.x} > Pt{} ? 1 : -1) * (a != Pt{});
