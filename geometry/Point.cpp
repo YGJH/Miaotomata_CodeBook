@@ -12,13 +12,14 @@ struct pt{
 	T  operator * (pt a){ return x*a.x + y*a.y;}
 	T  operator ^ (pt a){ return x*a.y - y*a.x;}
 
-	auto operator<=>(pt o) const { return (x != o.x) ? x <=> o.x : y <=> o.y; }
+	auto operator<=>(pt o) const { return (x != o.x) ? x <=> o.x : y <=> o.y; } // c++20
 	bool operator < (pt a) const { return x < a.x || (x == a.x && y < a.y);};
 	bool operator== (pt a) const { return x == a.x and y == a.y;};
 	friend T ori(pt a, pt b, pt c) { return (b - a) ^ (c - a); }
 	friend T abs2(pt a) { return a * a; }
 };
-using numbers::pi;
+using numbers::pi; // c++20
+const ld pi = acos(-1);
 const ld eps = 1e-8L;
 using Pt = pt<ld>;
 int sgn(ld x) { return (x > -eps) - (x < eps); } // dcmp == sgn
