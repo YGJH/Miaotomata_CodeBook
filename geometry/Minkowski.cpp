@@ -3,7 +3,7 @@ vector<Pt> Minkowski(vector<Pt> P, vector<Pt> Q) {
     auto cmp = [&](Pt a, Pt b) {
         return Pt{a.y, a.x} < Pt{b.y, b.x};
     };
-    auto reorder = [&](vector<Pt> &R) {
+    auto reorder = [&](auto &R) {
         rotate(R.begin(), min_element(all(R), cmp), R.end());
         R.push_back(R[0]), R.push_back(R[1]);
     };
