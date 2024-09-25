@@ -33,7 +33,7 @@ struct pSeg{
     node* upd(node* prv,int l,int r,int p,int v){
         node* x = new node();
         if(l == r){
-            x->v += v;
+            x->v = prv->v + v; //累加
             return x;
         }
         int m = (l+r)/2;
@@ -58,4 +58,4 @@ struct pSeg{
         if(num >= k) return qurey(a->l,b->l,l,m,k);// 左邊大往左搜
         else return qurey(a->r,b->r,m+1,r,k-num);
     }
-}
+}; 

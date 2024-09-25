@@ -28,7 +28,7 @@ struct fenwick{
         add(r,u,-x);
         add(r,d,x);
     }
-    void qry(int l,int u,int r,int d){
+    int qry(int l,int u,int r,int d){
         --l,--u;
         return qry(r,d) - qry(r,u) - qry(l,d) + qry(l,u);
     }
