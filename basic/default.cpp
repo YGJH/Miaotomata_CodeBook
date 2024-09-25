@@ -15,6 +15,8 @@ using namespace std;
 #define all(v) (v).begin(), (v).end()
 #define FZ(x) memset(x, 0, sizeof(x)) //fill zero
 #define SZ(x) ((int)x.size())
+bool chmin(auto &a, auto b) { return (b < a) and (a = b, true); }
+bool chmax(auto &a, auto b) { return (a < b) and (a = b, true); }
 using i128 = __int128_t;
 using i64 = __int64_t;
 using i32 = __int32_t;
