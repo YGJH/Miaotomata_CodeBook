@@ -1,4 +1,5 @@
-// Area[i] : area covered by at least i circle
+// Area[i] : area covered by at least i circle 
+// TODO:!!!aaa!!!
 vector<double> CircleUnion(const vector<Cir> &C) {
     const int n = C.size();
     vector<double> Area(n + 1);
