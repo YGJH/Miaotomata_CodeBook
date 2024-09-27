@@ -7,6 +7,7 @@ bool cover(Line L, Line P, Line Q) {
     return sgn(x * L.dir().y - y * L.dir().x) * sgn(v) >= 0;
 }
 vector<Line> HPI(vector<Line> P) {
+    // line P.a -> P.b 的逆時針是半平面
     sort(all(P), [&](Line l, Line m) {
         if (argcmp(l.dir(), m.dir())) return true;
         if (argcmp(m.dir(), l.dir())) return false;
