@@ -4,14 +4,14 @@
 struct segTree {
 #define MXN 200500
     int n;
-    // vector<int> seg;
-    // vector<int> arr, tag;
-    int seg[MXN], arr[MXN], tag[MXN];
+    vector<int> seg;
+    vector<int> arr, tag;
+    // int seg[MXN], arr[MXN], tag[MXN];
     void init(int a) {
         n = a;
-        // seg.resize(4 * (n + 5), 0);
-        // tag.resize(4 * (n + 5), 0);
-        // arr.resize(n + 5, 0);
+        seg.resize(4 * (n + 5), 0);
+        tag.resize(4 * (n + 5), 0);
+        arr.resize(n + 5, 0);
         for (int i = 0; i < n + 5; i++)
             arr[i] = 0;
         for (int i = 0; i < 4 * (n + 5); i++)
