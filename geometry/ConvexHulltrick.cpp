@@ -28,7 +28,7 @@ struct Convex {
         if (close) return (lower_bound(l, r, v, cmp) - V.begin()) % n;
         return (upper_bound(l, r, v, cmp) - V.begin()) % n;
     } 
-    // closer tangent point
+    // closer tangent point array[0] -> array[1] 逆時針
     array<int, 2> tangent2(Pt p) {
         array<int, 2> t{-1, -1};
         if (inside(p) == 2) return t;
