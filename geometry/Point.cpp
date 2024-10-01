@@ -16,14 +16,14 @@ struct pt{
 	bool operator < (pt a) const { return x < a.x || (x == a.x && y < a.y);};
 	bool operator== (pt a) const { return x == a.x and y == a.y;};
 	friend T ori(pt a, pt b, pt c) { return (b - a) ^ (c - a); }
-	friend T abs2(pt a) { return a * a; }
+	friend T abs2(pt a) { return abs(a * a); }
 };
 using numbers::pi; // c++20
 const ld pi = acos(-1);
 const ld eps = 1e-8L;
 using Pt = pt<ld>;
 int sgn(ld x) { return (x > -eps) - (x < eps); } // dcmp == sgn
-ld abs(Pt a) { return sqrt(a * a); }
+ld abs(Pt a) { return sqrt(abs2(a)); }
 ld arg(Pt x) { return atan2(x.y, x.x); }
 bool argcmp(Pt a, Pt b) { // arg(a) < arg(b)
     int f = (Pt{a.y, -a.x} > Pt{} ? 1 : -1) * (a != Pt{});
