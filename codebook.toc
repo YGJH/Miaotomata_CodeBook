@@ -6,6 +6,7 @@
 \contentsline {subsection}{\numberline {1.5}run.sh}{1}{}%
 \contentsline {section}{\numberline {2}binarysearch}{2}{}%
 \contentsline {subsection}{\numberline {2.1}二分搜}{2}{}%
+\contentsline {subsection}{\numberline {2.2}三分搜}{2}{}%
 \contentsline {section}{\numberline {3}dataStructure}{2}{}%
 \contentsline {subsection}{\numberline {3.1}DSU}{2}{}%
 \contentsline {subsection}{\numberline {3.2}fenwickTree}{2}{}%
@@ -25,7 +26,7 @@
 \contentsline {subsection}{\numberline {6.1}Point}{5}{}%
 \contentsline {subsection}{\numberline {6.2}Line}{5}{}%
 \contentsline {subsection}{\numberline {6.3}Circle}{5}{}%
-\contentsline {subsection}{\numberline {6.4}圓多邊形面積}{5}{}%
+\contentsline {subsection}{\numberline {6.4}圓多邊形面積}{6}{}%
 \contentsline {subsection}{\numberline {6.5}圓三角形面積}{6}{}%
 \contentsline {subsection}{\numberline {6.6}半平面交}{6}{}%
 \contentsline {subsection}{\numberline {6.7}圓線交}{6}{}%
