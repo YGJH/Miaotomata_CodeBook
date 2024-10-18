@@ -7,6 +7,12 @@
 		"complex": "cpp",
 		"numbers": "cpp",
 		"iosfwd": "cpp",
-		"ranges": "cpp"
+		"ranges": "cpp",
+		"*.tcc": "cpp",
+		"deque": "cpp",
+		"forward_list": "cpp",
+		"list": "cpp",
+		"string": "cpp",
+		"valarray": "cpp"
 	}
 }

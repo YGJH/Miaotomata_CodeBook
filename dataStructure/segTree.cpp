@@ -1,21 +1,14 @@
-#define cl(x) (x << 1)
-#define cr(x) (x << 1) + 1
 
 struct segTree {
-#define MXN 200500
+#define cl(x) (x << 1)
+#define cr(x) ((x << 1) | 1)
     int n;
     vector<int> seg;
     vector<int> arr, tag;
-    // int seg[MXN], arr[MXN], tag[MXN];
-    void init(int a) {
-        n = a;
-        seg.resize(4 * (n + 5), 0);
-        tag.resize(4 * (n + 5), 0);
-        arr.resize(n + 5, 0);
-        for (int i = 0; i < n + 5; i++)
-            arr[i] = 0;
-        for (int i = 0; i < 4 * (n + 5); i++)
-            seg[i] = tag[i] = 0;
+    segTree(int _n): n(_n) {
+        seg = vector<int>(4 * (n + 5), 0);
+        tag = vector<int>(4 * (n + 5), 0);
+        arr = vector<int>(n + 5, 0);
     }
     void push(int id, int l, int r) {
         if (tag[id] != 0) {
