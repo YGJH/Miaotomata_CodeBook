@@ -6,7 +6,7 @@ Pt Center(Pt a, Pt b, Pt c) {
 Cir MEC(vector<Pt> P) {
     mt19937 rng(time(0));
     shuffle(all(P), rng);
-    Cir C;
+    Cir C = {P[0], 0.0};
     for (int i = 0; i < P.size(); i++) {
         if (C.inside(P[i])) continue;
         C = {P[i], 0};
