@@ -153,6 +153,9 @@ stringstyle=\itshape\color{Green4},
     \subsection{2Dbit}
     \lstinputlisting{dataStructure/2Dbit.cpp}
 
+    \subsection{countMinimumSeg} 
+    \lstinputlisting{dataStructure/countMinimumSeg.cpp}
+
 \section{dp}
     \subsection{digit}
     \lstinputlisting{dp/digit.cpp}
@@ -270,6 +273,7 @@ stringstyle=\itshape\color{Green4},
     \subsection{kShortestPath}
     \lstinputlisting{graph/kShortestPath_O(knlogn).cpp}
 
+    \includetex{結論}{graph/conclusion.tex}
 \section{math}
     \subsection{DiscreteSqrt}
     \lstinputlisting{math/DiscreteSqrt.cpp}
@@ -368,13 +372,26 @@ stringstyle=\itshape\color{Green4},
 
 
 % 方格紙
-\newcommand{\gridpage}{
+\newcommand{\halfgridpage}{
     \begin{tikzpicture}[every node/.style={minimum size=1cm-\pgflinewidth, outer sep=10pt}, scale=2]
         \draw[step=0.2cm,color=gray] (0,0) grid (4,13);
         \draw[step=1cm,color=black,line width=0.4mm] (0,0) grid (4,13);
     \end{tikzpicture}
     \newpage
 }
+\newcommand{\gridpage}{
+    \centering
+\begin{tikzpicture}[every node/.style={minimum size=1cm-\pgflinewidth, outer sep=10pt}, scale=2]
+    \draw[step=0.2cm,color=gray] (0,0) grid (9,12);
+    \draw[step=1cm,color=black,line width=0.4mm] (0,0) grid (9,12);
+\end{tikzpicture}
+    \newpage
+}
+\onecolumn
+\gridpage
+\gridpage
+\gridpage
+\gridpage
 \gridpage
 \gridpage
 \gridpage

@@ -1,3 +1,4 @@
+//pi[i] = 最大的 k 使得 s[0...(k-1)] = s[i-(k-1)...i]
 vector<int> prefunc(const string& s){
 	int n = s.size();
 	vector<int> pi(n);
@@ -9,7 +10,9 @@ vector<int> prefunc(const string& s){
 	}
 	return pi;
 }
-vector<int> kmp(string str, string s, vector<int>& nxt) {
+//找 s 在 str 中出現的所有位子
+vector<int> kmp(string str, string s) {
+    vector<int> nxt = prefunc(s);
     vector<int> ans;
     for (int i = 0, j = 0; i < SZ(str); i++) {
         while (j && str[i] != s[j]) j = nxt[j - 1];

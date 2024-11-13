@@ -1,3 +1,5 @@
+//以每個字元為中心的最長迴文長度
+//abc -> @a@b@c
 void z_value_pal(char* s, int len, int* z) {
     len = (len << 1) + 1;
     for (int i = len - 1; i >= 0; i--)
