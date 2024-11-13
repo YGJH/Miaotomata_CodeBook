@@ -16,7 +16,7 @@ struct pt{
 	bool operator < (pt a) const { return x < a.x || (x == a.x && y < a.y);};
 	bool operator== (pt a) const { return x == a.x and y == a.y;};
 	friend T ori(pt a, pt b, pt c) { return (b - a) ^ (c - a); }
-	friend T abs2(pt a) { return abs(a * a); }
+	friend T abs2(pt a) { return a * a; }
 };
 using numbers::pi; // c++20
 const ld pi = acos(-1);
