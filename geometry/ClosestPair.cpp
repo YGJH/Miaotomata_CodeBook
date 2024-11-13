@@ -1,8 +1,9 @@
 pair<ld, pair<i32, i32>> ClosestPair(vector<Pt> &P) {
     // ans = dis * dis  !!注意ans overflow問題
-    int ans = INT64_MAX; pair<i32, i32> ansi;
+    // Pt非整數點ans記得改double
+    i64 ans = INT64_MAX; pair<i32, i32> ansi;
     auto upd = [&](const Pt &a, const Pt &b) {
-        ld dis = abs2(a - b);
+        auto dis = abs2(a - b);
         if (dis < ans) ans = dis, ansi.FF = a.id, ansi.SS = b.id;
     };
     auto cmpy = [](const Pt &a, const Pt &b) { return a.y < b.y; };
