@@ -28,3 +28,4 @@ auto lca = [&](int x,int y){
     }
     return dep[x] < dep[y] ? x : y ;
 };
+// 如果要開線段樹 要每個鏈都開一顆 (比較快)
