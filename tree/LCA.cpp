@@ -30,3 +30,37 @@ int lca(int a, int b) {
 
     return anc[a][0];
 }
+
+
+
+int t = 0,tt = 0;
+vector<int> dfn(n),in(n),out(n),dep(n);
+vector anc(n,vector<int>(20));
+auto pdfs = [&](auto &&self,int x,int f,int d = 0) -> void {
+    in[x] = ++t;
+    anc[x][0] = f;
+    dep[x] = d;
+    dfn[x] = ++tt;
+    for(auto u:E[x]){
+        if(u == f) continue;
+        self(self,u,x,d+1);
+    }
+    out[x] = ++t;
+};
+pdfs(pdfs,0,0);
+for(int k = 1; k < 20;++k){
+    for(int i = 0; i < n;++i){
+        anc[i][k] = anc[anc[i][k-1]][k-1];
+    }
+}
+auto isanc = [&](int u,int v){
+    return in[u] <= in[v] && out[v] <= out[u];
+};
+auto lca = [&](int x,int y){
+    if(isanc(x,y)) return x;
+    if(isanc(y,x)) return y;
+    for(int i = 19; i >= 0; --i){
+        if(!isanc(anc[x][i],y)) x = anc[x][i];
+    }
+    return anc[x][0];
+};
