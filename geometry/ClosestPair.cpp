@@ -1,9 +1,10 @@
 pair<ld, pair<i32, i32>> ClosestPair(vector<Pt> &P) {
     // ans = dis * dis  !!注意ans overflow問題
     // Pt非整數點ans記得改double
-    i64 ans = INT64_MAX; pair<i32, i32> ansi;
+    auto ans = abs2(P[0], P[1]);
+    pair<i32, i32> ansi;
     auto upd = [&](const Pt &a, const Pt &b) {
-        i64 dis = abs2(a - b); // Pt非整數點i64記得改double
+        auto dis = abs2(a - b); // Pt非整數點i64記得改double
         if (dis < ans) ans = dis, ansi.FF = a.id, ansi.SS = b.id;
     };
     auto cmpy = [](const Pt &a, const Pt &b) { return a.y < b.y; };
@@ -18,7 +19,7 @@ pair<ld, pair<i32, i32>> ClosestPair(vector<Pt> &P) {
         }
 
         i32 m = (l + r) >> 1;
-        i64 midx = P[m].x; // Pt非整數點i64記得改double
+        auto midx = P[m].x; // Pt非整數點i64記得改double
         rec(l, m), rec(m + 1, r);
         i32 tsz = 0;
         inplace_merge(P.begin() + l, P.begin() + m + 1, P.begin() + r + 1, cmpy);
