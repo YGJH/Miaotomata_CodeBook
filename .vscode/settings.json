@@ -13,6 +13,7 @@
 		"forward_list": "cpp",
 		"list": "cpp",
 		"string": "cpp",
-		"valarray": "cpp"
+		"valarray": "cpp",
+		"tuple": "cpp"
 	}
 }
