@@ -48,7 +48,7 @@ template<class T> inline void read(T &x) {
     x = x * f;
 }
 template<class T> void write(const T &x) {
-    static int32_t c[40];
+    static i32 c[40];
     if (!x) { putac('0'); return; }
     i32 len = 0;
     T k1 = x;
@@ -69,16 +69,6 @@ inline void write(const T &x, const Args&... args) {
     write(x);
     write(args...);
 }
-void OUO();
-i32 main() {
-    // ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    i32 t = 1;
-    for (i32 tt = 0; tt < t; tt++){
-        OUO();
-    }
-    fwrite(obuf, p3 - obuf, 1, stdout);
-}
-
 // 喵
 //           ／＞　フ
 // 　　　　  |   _　 _l
@@ -89,3 +79,30 @@ i32 main() {
 // 　／￣|　　 |　|　|
 // 　| (￣ヽ＿_ヽ_)__)
 // 　＼二つ
+// 喵
+void OUO();
+i32 main() {
+    // ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    i32 t = 1;
+    for (i32 tt = 0; tt < t; tt++){
+        OUO();
+    }
+    fwrite(obuf, p3 - obuf, 1, stdout);
+}
+
+void OUO() {
+    
+}
+// ⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠟⠛⠛⠛⠛⠛⠛⠛⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿ 
+// ⣿⣿⣿⣿⣿⠿⠛⢉⣠⣴⣶⣾⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣌⣉⠙⠻⠿⢿⣿⣿ 
+// ⣿⣿⡿⠛⣁⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⠈⣻ 
+// ⣿⡟⢁⣾⣿⣿⠿⠛⠻⢿⣭⣿⣿⣿⣿⣿⣿⣟⣥⠟⠛⠛⠻⢿⣿⣿⡟⣿⣧⢸ 
+// ⡟⢀⣾⣿⣿⡏⠀⠤⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⠃⠠⠶⠄⠀⠀⣽⣿⣿⣦⡉⢸ 
+// ⢁⣾⣿⣿⣿⣷⣦⣀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣿⣦⣄⡀⣀⣀⣴⣿⣿⣿⣿⣇⠹ 
+// ⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠉⠀⠀⠉⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣤ 
+// ⣿⣟⡻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢛⣿ 
+// ⣿⣟⣻⣷⣾⣿⣿⣿⣿⣿⣿⣿⡿⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣵⣿⣟⣻ 
+// ⣿⡿⣿⣿⣿⣿⠿⣿⣿⣿⠟⢋⣠⣤⣤⣀⡙⠛⠻⠿⣿⠿⠿⣩⣿⣿⣿⣟⣻⣿ 
+// ⣿⣿⣿⣿⣿⣿⣦⣤⣉⣠⣶⣿⣿⣿⣿⣿⣿⣷⣦⣄⡀⠀⠀⣨⣿⣿⣿⣿⣿⣿ 
+// ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⡿⣿⣿⣿⠿⠿⣭⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇ 
+// ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⣤⣤⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀
