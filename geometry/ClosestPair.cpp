@@ -1,8 +1,9 @@
 pair<ld, pair<i32, i32>> ClosestPair(vector<Pt> &P) {
     // ans = dis * dis  !!注意ans overflow問題
     if (P.size() == 1) { return {1e200L, {0, 0}}; }
-    auto ans = abs2(P[0] - P[1]);
     pair<i32, i32> ansi;
+    auto ans = abs2(P[0] - P[1]);
+    ansi = {0, 1};
     auto upd = [&](const Pt &a, const Pt &b) {
         auto dis = abs2(a - b); 
         if (dis < ans) ans = dis, ansi.FF = a.id, ansi.SS = b.id;
