@@ -1,7 +1,6 @@
 struct STRUCT_DSU {
     vector<int> f, sz;
-    void init(int n) {
-        f.resize(n), sz.resize(n);
+    STRUCT_DSU(i32 n) : f(n), sz(n) {
         for (int i = 0; i < n; i++) {
             f[i] = i;
             sz[i] = 1;
@@ -10,7 +9,7 @@ struct STRUCT_DSU {
     int find(int x) {
         if (x == f[x]) return x;
         f[x] = find(f[x]);
-        return find(f[x]);
+        return f[x];
     }
 
     void merge(int x, int y) {
