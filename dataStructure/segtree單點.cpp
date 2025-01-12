@@ -1,3 +1,4 @@
+// [l, r)
 template<class Info>
 struct SegmentTree {
     int n;
