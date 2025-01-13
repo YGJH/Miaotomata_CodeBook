@@ -1,3 +1,4 @@
+// [l, r)
 template<class Info, class Tag>
 struct segTree {
     inline i32 cl(i32 x) { return x << 1; }
@@ -33,16 +34,6 @@ struct segTree {
         };
         build(1, 0, n);
     }
-    void push(i32 p, i32 l, i32 r) {
-        if (tag[p].add != 0) {
-            info[p].ans += tag[p].add * (r - l);
-            if (r - l != 1) {
-                tag[cl(p)].add += tag[p].add;
-                tag[cr(p)].add += tag[p].add;
-            } 
-            tag[p].add = 0;
-        }
-    }
     void pull(i32 p, i32 l, i32 r) {
         i32 m = (l + r) >> 1;
         push(cl(p), l, m);
@@ -73,4 +64,14 @@ struct segTree {
     }
     Info rangeQuery(i32 l, i32 r) { return rangeQuery(1, 0, n, l, r); }
     void rangeModify(i32 l, i32 r, const Tag &v) { rangeModify(1, 0, n, l, r, v); }
+    void push(i32 p, i32 l, i32 r) { // need compelete
+        if (tag[p].add != 0) {
+            info[p].v += tag[p].add * (r - l);
+            if (r - l != 1) {
+                tag[cl(p)].add += tag[p].add;
+                tag[cr(p)].add += tag[p].add;
+            } 
+            tag[p].add = 0;
+        }
+    }
 };
