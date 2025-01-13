@@ -1,69 +1,71 @@
 // [l, r)
 template<class Info>
 struct SegmentTree {
-    int n;
+    inline i32 cl(i32 x) { return x << 1; }
+    inline i32 cr(i32 x) { return (x << 1) | 1; }
+    i32 n;
     vector<Info> info;
     SegmentTree() : n(0) {}
-    SegmentTree(int n_, Info v_ = Info()) {
+    SegmentTree(i32 n_, Info v_ = Info()) {
         init(n_, v_);
     }
     template<class T>
     SegmentTree(vector<T> init_) {
         init(init_);
     }
-    void init(int n_, Info v_ = Info()) {
+    void init(i32 n_, Info v_ = Info()) {
         init(vector(n_, v_));
     }
     template<class T>
     void init(vector<T> init_) {
         n = init_.size();
         info.assign(4 << __lg(n), Info());
-        function<void(int, int, int)> build = [&](int p, int l, int r) {
+        function<void(i32, i32, i32)> build = [&](i32 p, i32 l, i32 r) {
             if (r - l == 1) {
                 info[p] = init_[l];
                 return;
             }
-            int m = (l + r) / 2;
-            build(2 * p, l, m);
-            build(2 * p + 1, m, r);
+            i32 m = (l + r) / 2;
+            build(cl(p), l, m);
+            build(cr(p), m, r);
             pull(p);
         };
         build(1, 0, n);
     }
-    void pull(int p) {
-        info[p] = info[2 * p] + info[2 * p + 1];
+    void pull(i32 p) {
+        info[p] = info[cl(p)] + info[cr(p)];
     }
-    void modify(int p, int l, int r, int x, const Info &v) {
+    void modify(i32 p, i32 l, i32 r, i32 x, const Info &v) {
         if (r - l == 1) {
             info[p] = v;
             return;
         }
-        int m = (l + r) / 2;
+        i32 m = (l + r) / 2;
         if (x < m) {
-            modify(2 * p, l, m, x, v);
+            modify(cl(p), l, m, x, v);
         } else {
-            modify(2 * p + 1, m, r, x, v);
+            modify(cr(p), m, r, x, v);
         }
         pull(p);
     }
-    void modify(int p, const Info &v) {
+    void modify(i32 p, const Info &v) {
         modify(1, 0, n, p, v);
     }
-    Info rangeQuery(int p, int l, int r, int x, int y) {
+    Info rangeQuery(i32 p, i32 l, i32 r, i32 x, i32 y) {
         if (l >= y || r <= x) {
             return Info();
         }
         if (l >= x && r <= y) {
             return info[p];
         }
-        int m = (l + r) / 2;
-        return rangeQuery(2 * p, l, m, x, y) + rangeQuery(2 * p + 1, m, r, x, y);
+        i32 m = (l + r) / 2;
+        return rangeQuery(cl(p), l, m, x, y) + rangeQuery(cr(p), m, r, x, y);
     }
-    Info rangeQuery(int l, int r) {
+    Info rangeQuery(i32 l, i32 r) {
         return rangeQuery(1, 0, n, l, r);
     }
     template<class F>
-    int findFirst(int p, int l, int r, int x, int y, F &&pred) {
+    i32 findFirst(i32 p, i32 l, i32 r, i32 x, i32 y, F &&pred) {
         if (l >= y || r <= x) {
             return -1;
         }
@@ -73,19 +75,19 @@ struct SegmentTree {
         if (r - l == 1) {
             return l;
         }
-        int m = (l + r) / 2;
-        int res = findFirst(2 * p, l, m, x, y, pred);
+        i32 m = (l + r) / 2;
+        i32 res = findFirst(cl(p), l, m, x, y, pred);
         if (res == -1) {
-            res = findFirst(2 * p + 1, m, r, x, y, pred);
+            res = findFirst(cr(p), m, r, x, y, pred);
         }
         return res;
     }
     template<class F>
-    int findFirst(int l, int r, F &&pred) {
+    i32 findFirst(i32 l, i32 r, F &&pred) {
         return findFirst(1, 0, n, l, r, pred);
     }
     template<class F>
-    int findLast(int p, int l, int r, int x, int y, F &&pred) {
+    i32 findLast(i32 p, i32 l, i32 r, i32 x, i32 y, F &&pred) {
         if (l >= y || r <= x) {
             return -1;
         }
@@ -95,15 +97,15 @@ struct SegmentTree {
         if (r - l == 1) {
             return l;
         }
-        int m = (l + r) / 2;
-        int res = findLast(2 * p + 1, m, r, x, y, pred);
+        i32 m = (l + r) / 2;
+        i32 res = findLast(cr(p), m, r, x, y, pred);
         if (res == -1) {
-            res = findLast(2 * p, l, m, x, y, pred);
+            res = findLast(cl(p), l, m, x, y, pred);
         }
         return res;
     }
     template<class F>
-    int findLast(int l, int r, F &&pred) {
+    i32 findLast(i32 l, i32 r, F &&pred) {
         return findLast(1, 0, n, l, r, pred);
     }
 };
