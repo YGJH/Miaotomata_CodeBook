@@ -38,7 +38,7 @@ struct segTree {
         i32 m = (l + r) >> 1;
         push(cl(p), l, m);
         push(cr(p), m, r);
-        info[p] = info[cl(p)] + info[cr(p)];
+        info[p] = merge(info[cl(p)], info[cr(p)]);
     }
     void rangeModify(i32 p, i32 l, i32 r, i32 x, i32 y, const Tag &v) {
         push(p, l, r);
@@ -60,7 +60,7 @@ struct segTree {
             return info[p];
         }
         i32 m = (l + r)>> 1;
-        return rangeQuery(cl(p), l, m, x, y) + rangeQuery(cr(p), m, r, x, y);
+        return merge(rangeQuery(cl(p), l, m, x, y), rangeQuery(cr(p), m, r, x, y));
     }
     Info rangeQuery(i32 l, i32 r) { return rangeQuery(1, 0, n, l, r); }
     void rangeModify(i32 l, i32 r, const Tag &v) { rangeModify(1, 0, n, l, r, v); }
