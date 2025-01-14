@@ -33,7 +33,7 @@ struct SegmentTree {
         build(1, 0, n);
     }
     void pull(i32 p) {
-        info[p] = info[cl(p)] + info[cr(p)];
+        info[p] = merge(info[cl(p)], info[cr(p)]);
     }
     void modify(i32 p, i32 l, i32 r, i32 x, const Info &v) {
         if (r - l == 1) {
@@ -59,7 +59,7 @@ struct SegmentTree {
             return info[p];
         }
         i32 m = (l + r) / 2;
-        return rangeQuery(cl(p), l, m, x, y) + rangeQuery(cr(p), m, r, x, y);
+        return merge(rangeQuery(cl(p), l, m, x, y), rangeQuery(cr(p), m, r, x, y));
     }
     Info rangeQuery(i32 l, i32 r) {
         return rangeQuery(1, 0, n, l, r);
