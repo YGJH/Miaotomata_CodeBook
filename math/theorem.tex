@@ -46,4 +46,18 @@
       $A^B \mod C=A^{B \mod \phi(c) + \phi(c)}\mod C$
     \item 6的倍數: \\
      $(a-1)^3 + (a+1)^3 + (-a)^3 + (-a)^3 = 6a$
+    \item Standard young tableau (標準楊表): \\
+      $\lambda=(\lambda _{1}\geq \cdots \geq \lambda _{k})$,$\sum \lambda _{i} = n$ denoted by $\lambda \vdash n$\\
+      $\lambda \vdash n$ 意思為 $\lambda$ 整數拆分 $n$ eg. $n = 10,\lambda = (6,4)$ 此拆分可表示一種楊表形狀。\\
+      楊表 : 第$1$列 $\lambda _{1}$ 行 $\cdots$ 第$k$列 $\lambda_{k}$ 行的方格圖。\\
+      標準楊表 : 每列從左到右遞增，每行從上到下遞增。 \\
+      Let $T$ 為某一 Permutation 跑RSK後的標準楊表，則此Permutation的LDS、LIS長度分別為 $T$ 的列、行數。 
+    \item RSK Correspondence: \\
+      A permutation is bijective to $(P,Q)$ 一對標準楊表 \\
+      $P$ : Permutation 跑 RSK 算法的結果，可為半標準楊表。 \\
+      $Q$ : 可用來還原 Permutation (像排列矩陣)。 
+    \item Hook length formula (形狀為 $\lambda$ 的標準楊表個數): \\
+      $f^{\lambda }={\frac {n!}{\prod h_{\lambda }(i,j)}}$ \\
+      $h_{\lambda }(i,j)=$ number of pair $(x,y)$ where $(x = i \lor y = j) \land (x,y) \geq (i,j)$ 且 $(x,y)$ 落在形狀為$\lambda$的表上。
+
 \end{itemize}
