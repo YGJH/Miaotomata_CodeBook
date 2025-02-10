@@ -58,6 +58,9 @@
       $Q$ : 可用來還原 Permutation (像排列矩陣)。 
     \item Hook length formula (形狀為 $\lambda$ 的標準楊表個數): \\
       $f^{\lambda }={\frac {n!}{\prod h_{\lambda }(i,j)}}$ \\
-      $h_{\lambda }(i,j)=$ number of pair $(x,y)$ where $(x = i \lor y = j) \land (x,y) \geq (i,j)$ 且 $(x,y)$ 落在形狀為$\lambda$的表上。
+      $h_{\lambda }(i,j)=$ number of pair $(x,y)$ where $(x = i \lor y = j) \land (x,y) \geq (i,j)$ 且 $(x,y)$ 落在形狀為$\lambda$的表上。\\
+      Recursion:\\
+      (i) $f^{(0,\cdots,0)} = 1$ \\
+      (ii) $f^{(\lambda_{1},\cdots,\lambda_{m})} = \sum_{k=1}^{m} f^{(\lambda_{1},\cdots,\lambda_{k-1},\lambda_{k} - 1,\lambda_{k+1},\cdots,\lambda_{m})} $
 
 \end{itemize}
