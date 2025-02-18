@@ -4,7 +4,7 @@ i128 exgcd(i128 a, i128 b, i128 &x, i128 &y){
     y -= a / b * x;
     return d;
 }
-// as -> 算式答案 x
+// as -> 算式答案
 // ns -> 模數 MOD
 i128 CRT(vector<i64> as, vector<i64> ns) {
     i32 n = as.size();
