@@ -12,6 +12,15 @@ template<class T> ostream &operator<<(ostream &s, vector<T> &a) { int n=a.size()
 #define ff first
 #define ss second
 
+#ifdef LOCAL
+template<class... T> void dbg(T... x) {
+    char e{};
+    ((cerr << e << x, e = ' '), ...);
+}
+#define debug(x...) dbg(#x, '=', x, '\n')
+#else
+#define debug(...) ((void)0)
+#endif
 #define forr(i,n) for(int i = 1; i <= n;++i)
 #define rep(i,j,n) for(int i = j; i < n;++i)
 #define PB push_back
