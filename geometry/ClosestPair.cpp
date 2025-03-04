@@ -11,7 +11,7 @@ pair<ld, pair<i32, i32>> ClosestPair(vector<Pt> &P) {
     auto cmpy = [](const Pt &a, const Pt &b) { return a.y < b.y; };
 
     vector<Pt> t(P.size() + 1);
-    function<void(i32, i32)> rec = [&](i32 l, i32 r) {
+    auto rec = [&](auto &&self, i32 l, i32 r) {
         if (r - l <= 3) {
             for (i32 i = l; i <= r; i++)
                 for (i32 j = i + 1; j <= r; j++) upd(P[i], P[j]);
@@ -21,7 +21,7 @@ pair<ld, pair<i32, i32>> ClosestPair(vector<Pt> &P) {
 
         i32 m = (l + r) >> 1;
         auto midx = P[m].x; 
-        rec(l, m), rec(m + 1, r);
+        self(self, l, m), self(self, m + 1, r);
         i32 tsz = 0;
         inplace_merge(P.begin() + l, P.begin() + m + 1, P.begin() + r + 1, cmpy);
         for (i32 i = l; i <= r; i++) {
@@ -31,6 +31,6 @@ pair<ld, pair<i32, i32>> ClosestPair(vector<Pt> &P) {
         }
     };
     sort(all(P));
-    rec(0, P.size() - 1);
+    rec(rec, 0, P.size() - 1);
     return make_pair(sqrt(ans), ansi);
 }
