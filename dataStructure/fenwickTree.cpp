@@ -22,10 +22,11 @@ struct fenwick {
                 p = nxt;
             }
         }
-        return p + 1;
+        if (p + 1 > n) return -1;
+        return p;
     }
     void add(i32 x, i64 v) { _add(x + 1, v); }
     i64 qry(i32 x) { return _qry(x + 1); }
 	i64 qry(i32 l,i32 r) { return qry(r) - qry(l - 1); }
-    i32 lower_bound(i64 k) { return _lowerbound(k) - 1; }
+    i32 lower_bound(i64 k) { return _lowerbound(k); }
 };
