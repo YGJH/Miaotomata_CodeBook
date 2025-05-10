@@ -18,7 +18,7 @@ struct pSeg{
         return x;
     }
     void init(int _n){
-        n = _n+2;
+        n = _n;
         ver.PB(build(0,n-1));
     }
     int qry(node* now,int l,int r,int ql,int qr){
