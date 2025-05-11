@@ -2,7 +2,7 @@ struct Cir {
     Pt o;
     ld r; 
 };
-bool disjunct(const Cir &a, const Cir &b) {
+bool disjunct(const Cir &a, const Cir &b) { //  分開 || 外切 -> 1
     return sgn(abs(a.o - b.o) - a.r - b.r) >= 0; 
 }
 bool contain(const Cir &a, const Cir &b) {
