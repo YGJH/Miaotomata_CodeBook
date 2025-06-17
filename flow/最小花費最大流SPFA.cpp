@@ -1,5 +1,5 @@
 struct zkwflow{
-  static const int maxN=10000;
+  static constexpr int maxN=10000;
   struct Edge{ int v,f,re; ll w;};
   int n,s,t,ptr[maxN]; bool vis[maxN]; ll dis[maxN];
   vector<Edge> E[maxN];
