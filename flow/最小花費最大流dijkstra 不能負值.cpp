@@ -1,8 +1,8 @@
 struct MinCostMaxFlow{
 typedef int Tcost;
-  static const int MAXV = 20010;
-  static const int INFf = 1000000;
-  static const Tcost INFc  = 1e9;
+  static constexpr int MAXV = 20010;
+  static constexpr int INFf = 1000000;
+  static constexpr Tcost INFc  = 1e9;
   struct Edge{
     int v, cap;
     Tcost w;
