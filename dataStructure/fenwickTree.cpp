@@ -3,6 +3,7 @@ struct fenwick {
 	#define lowbit(x) (x & -x)
 	i32 n;
 	vector<i64> v;
+    fenwick() {}
 	fenwick(i32 _n) : n(_n + 1), v(_n + 2, 0) {}
 	void _add(i32 x, i64 u){
 		for(;x <= n; x += lowbit(x)) v[x] += u;
