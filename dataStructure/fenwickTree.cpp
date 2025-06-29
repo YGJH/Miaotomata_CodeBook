@@ -1,7 +1,7 @@
+// [0, n] -> fenwick(n)
 struct fenwick {
-    // [0, n]
 	#define lowbit(x) (x & -x)
-	i32 n;
+	i32 n; // [0, n)
 	vector<i64> v;
     fenwick() {}
 	fenwick(i32 _n) : n(_n + 1), v(_n + 2, 0) {}
