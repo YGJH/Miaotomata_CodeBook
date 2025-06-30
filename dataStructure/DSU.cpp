@@ -1,18 +1,17 @@
-struct STRUCT_DSU {
-    vector<int> f, sz;
-    STRUCT_DSU(i32 n) : f(n), sz(n) {
-        for (int i = 0; i < n; i++) {
+struct DSU {
+    vector<i32> f, sz;
+    DSU(i32 n) : f(n), sz(n) {
+        for (i32 i = 0; i < n; i++) {
             f[i] = i;
             sz[i] = 1;
         }
     }
-    int find(int x) {
+    i32 find(i32 x) {
         if (x == f[x]) return x;
         f[x] = find(f[x]);
         return f[x];
     }
-
-    void merge(int x, int y) {
+    void merge(i32 x, i32 y) {
         x = find(x), y = find(y);
         if (x == y) return;
         if (sz[x] < sz[y])
@@ -20,7 +19,5 @@ struct STRUCT_DSU {
         sz[x] += sz[y];
         f[y] = x;
     }
-    bool same(int a, int b) {
-        return (find(a) == find(b));
-    }
+    bool same(i32 a, i32 b) { return (find(a) == find(b)); }
 };
