@@ -1,4 +1,4 @@
-// nlogn f(x) -> f(x-k)
+// nlogn f(x) -> f(x + k)
 auto shift = [&](vector<i64> f,i64 k) {
     k %= mod;
     k += mod;
