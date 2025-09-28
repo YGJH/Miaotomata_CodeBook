@@ -1,3 +1,10 @@
+% =============================================================
+% Codebook 主檔說明
+% - 目標：在最少頁數內排入常用演算法 / 資料結構程式碼。
+% - 版面：使用 twocolumn 壓縮，手動設定窄邊界，字體縮小。
+% - 編譯：建議使用 xelatex (需支援 fontspec / xeCJK)。
+% - 可調整項目：行號 (listings)、字型、是否加入更多章節。
+% =============================================================
 \documentclass[a4paper,10pt,twocolumn,oneside]{article}
 \setlength{\columnsep}{10pt}                                                              %兩欄模式的間距
 \setlength{\columnseprule}{0pt}                                                                %兩欄模式間格線粗細
@@ -113,7 +120,7 @@ stringstyle=\itshape\color{Green4},
 \tableofcontents
 
 % \newpage
-%sectionstart
+%sectionstart  % ===== 以下依分類匯入各程式碼檔案 =====
 \section{basic}
     \subsection{default}
     \lstinputlisting{basic/default.cpp}
@@ -286,7 +293,7 @@ stringstyle=\itshape\color{Green4},
     \subsection{kShortestPath}
     \lstinputlisting{graph/kShortestPath_O(knlogn).cpp}
 
-    \includetex{結論}{graph/conclusion.tex}
+    \includetex{結論}{graph/conclusion.tex} % 圖論補充 / 結論整理
 \section{math}
     \subsection{DiscreteSqrt}
     \lstinputlisting{math/DiscreteSqrt.cpp}
@@ -303,9 +310,9 @@ stringstyle=\itshape\color{Green4},
     \subsection{josephus}
     \lstinputlisting{math/josephus.cpp}
 
-    \includetex{Theorem}{math/theorem.tex}
+    \includetex{Theorem}{math/theorem.tex}  % 數學常用定理彙整
     \vspace{1.2em}
-    \includetex{Primes}{math/Primes.tex}
+    \includetex{Primes}{math/Primes.tex}    % 質數相關補充內容
     \vspace{1.2em}
     \subsection{millerrabin}
     \lstinputlisting{math/miller_rabin.cpp}
@@ -404,9 +411,11 @@ stringstyle=\itshape\color{Green4},
 
     \subsection{VirtualTree}
     \lstinputlisting{tree/VirtualTree.cpp}
-%sectionend
+%sectionend  % ===== 程式碼主體結束 =====
 
 
+% 方格紙 (下方巨集)：列印時可附加數頁空白格紙供賽中手寫推導。
+% 若不需要可註解整段，或改為插入外部 PDF 模板以加速編譯。
 % 方格紙
 \newcommand{\halfgridpage}{
     \begin{tikzpicture}[every node/.style={minimum size=1cm-\pgflinewidth, outer sep=10pt}, scale=2]
