@@ -64,7 +64,12 @@
 % \setmainfont{TeX Gyre Termes}
 % \setmainfont{Consolas}				%主要字型
 % \setmonofont{Monaco}				%主要字型
-\setCJKmainfont{SimSun}
+\setCJKmainfont[
+  Path = .fonts/ttf/,        % 你放字型檔的資料夾（相對於主 .tex 檔案）
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+]{NotoSansTC}
 
 % \setCJKmainfont{Consolas}			%中文字型
 % \setmainfont{sourcecodepro}
