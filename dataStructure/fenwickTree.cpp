@@ -1,14 +1,15 @@
+// [0, n] -> fenwick(n)
 struct fenwick {
-    // [0, n]
 	#define lowbit(x) (x & -x)
-	int n;
+	i32 n; // [0, n)
 	vector<i64> v;
+    fenwick() {}
 	fenwick(i32 _n) : n(_n + 1), v(_n + 2, 0) {}
 	void _add(i32 x, i64 u){
 		for(;x <= n; x += lowbit(x)) v[x] += u;
 	}
 	i64 _qry(i32 x){
-		int ret = 0;
+		i64 ret = 0;
 		for(; x ; x -= lowbit(x)) ret += v[x];
 		return ret;
 	}
