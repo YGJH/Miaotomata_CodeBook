@@ -1,21 +1,28 @@
-void z_value_pal(const string &input, vector<int> &z)
-{
-    // 幹你娘Miaotomata 你是不會用動態分配的陣列喔 他媽的害我一直runtime error
-    int len = input.size();
-    string s; s.reserve((len << 1) + 1);
-    for (int i = 0; i < len; ++i)
-    {
-        s.push_back('@');
-        s.push_back(input[i]);
+// 回傳: 最長回文子字串 [bestL, bestR)；同時可得到半徑陣列 p
+pair<int,int> manacher_longest(const string &s) {
+    if (s.empty()) return {0,0};//你媽死了
+    string t; t.reserve(s.size()*2 + 3);
+    t.push_back('^');
+    t.push_back('#');
+    for (char c : s) { t.push_back(c); t.push_back('#'); }
+    t.push_back('$');
+    int n = (int)t.size();
+    vector<int> p(n, 0);
+    int center = 0, right = 0;
+    for (int i = 1; i < n-1; ++i) {
+        int mirror = 2*center - i;
+        if (i < right) p[i] = min(right - i, p[mirror]);
+        while (t[i + 1 + p[i]] == t[i - 1 - p[i]]) ++p[i];
+        if (i + p[i] > right) {
+            center = i;
+            right  = i + p[i];
+        }
     }
-    s.push_back('@');
 
-    int n = s.size();
-    z.assign(n, 1);
-    for (int i = 1, l = 0, r = 0; i < n; ++i)
-    {
-        z[i] = (i < r ? min(z[l + l - i], r - i) : 1);
-        while (i - z[i] >= 0 && i + z[i] < n && s[i - z[i]] == s[i + z[i]]) ++z[i];
-        if (i + z[i] > r) l = i, r = i + z[i];
+    int bestLen = 0, bestCenter = 0;
+    for (int i = 1; i < n-1; ++i) {
+        if (p[i] > bestLen) { bestLen = p[i]; bestCenter = i; }
     }
+    int start = (bestCenter - bestLen) / 2;
+    return {start, start + bestLen};
 }
